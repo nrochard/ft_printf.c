@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/05 21:23:55 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/06 00:10:45 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+
+
+int     ft_printf(const char *str, ...);
+void	ft_putstr_fd(char *s, int fd);
+int main();
 
 #endif

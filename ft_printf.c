@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/05 20:05:04 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/05 23:42:28 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,81 +14,85 @@
 
 #include "ft_printf.h"
 
-void put_s(char *s)
-{
-    int i;
+// void put_s(char *s)
+// {
+//     int i;
 
-    i = 0;
-    while (s[i])
-        i++;
-    write(1, s, i);
+//     i = 0;
+//     while (s[i] != '\0')
+//         i++;
+//     write(1, s, i);
+// }
+
+void what_type(const char *str, int i, va_list v)
+{
+    if (str[i] == 's')
+    {
+		ft_putstr_fd(va_arg(v, char *), 1);
+        // put_s(va_arg(v, char *));
+    }
 }
 
-void find_modulo(const char *str, int i, va_list v)
+int    search_flag(const char *str, int i)
 {
-	 if (str[i] == '%')
-        {
-            // if (str[i + 1] == 'c')
-            // {
-				
-            // } 
-            if (str[i + 1] == 's')
-            {
-                put_s(va_arg(v, char *));
-            }
-    //         if (str[i + 1] == 'p')
-    //         {
+	int count;
+	int nb;
+	
+	count = 0;
+	while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
+		|| str[i] != 'i' || str[i] != 'u' || str[i] != 'x' || str[i] != 'X'))
+	{
+		count++;
+		i++;
+	}
+	nb = count;
+	i = i - count;
+	while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
+	|| str[i] != 'i' || str[i] != 'u' || str[i] != 'x' || str[i] != 'X'))
+	{
+		if (str[i] == '-')
+		{
 
-    //         }
-    //         if (str[i + 1] == 'd')
-    //         {
+		}
+		else if (str[i] == '0')
+		{
 
-    //         }
-    //         if (str[i + 1] == 'i')
-    //         {
+		}
+		else if (str[i] == '.')
+		{
 
-    //         }
-    //         if (str[i + 1] == 'u')
-    //         {
-
-    //         }
-    //         if (str[i + 1] == 'x')
-    //         {
-
-    //         }
-    //         if (str[i + 1] == 'X')
-    //         {
-
-    //         }
-    }
+		}
+		i++;
+	}
+	return (0);
 }
 
 int     ft_printf(const char *str, ...)
 {
-	va_list va;
+	va_list v;
 	int i;
 	int count;
 
-	i = 0;
+	i = -1;
 	count = 0;
-	va_start (va, str);
-	while(str[i] != '\0')
+	va_start (v, str);
+	while (str[++i] != '\0')
 	{
 		if (str[i] == '%')
-			find_modulo(str, i, va);
-		i++;
+		{
+			if ((search_flag(str, i + 1) == 0))
+			{
+				what_type(str, (i + 1), v);
+			}
+			else
+			{
+				
+			}
+		}
+		else
+			write(1, &str[i], 1);
 	}
-	va_end(va);
-    return (1);
-	// return (< 0 s echec)
+	return (1);
+	// return (< 0 si echec)
 	// return(nb charac de read si ok sans '\0')
-}
-
-int main()
-{
-	char *s = "salut les copains";
-
-	printf("%s\n", s);
-	ft_printf("%s", s);
-    return (0);
 }
