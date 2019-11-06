@@ -33,8 +33,10 @@ SRCS	=	libft/ft_atoi.c			\
 			libft/ft_strtrim.c		\
 			libft/ft_substr.c		\
 			libft/ft_tolower.c		\
+			libft/ft_putnbr_base.c	\
 			libft/ft_toupper.c		\
 			./ft_printf.c 			\
+			ft_printf_utils.c		\
 
 OBJS	=	$(SRCS:%.c=%.o)
 

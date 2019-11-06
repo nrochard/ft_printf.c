@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 19:48:06 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/13 18:42:20 by nrochard         ###   ########.fr       */
+/*   Created: 2019/11/06 18:36:35 by nrochard          #+#    #+#             */
+/*   Updated: 2019/11/06 18:52:58 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_putchar(char c)
 {
-	t_list	*new;
-
-	if (!(new = malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	write(1, &c, 1);
 }
+
+void	ft_putnbr_u(unsigned n)
+{
+
+	// if (n == -2147483648)
+	// {
+	// 	write(fd, "-2147483648", 11);
+	// 	return ;
+	// }
+	if (n < 10)
+		ft_putchar((n + '0'));
+	else
+	{
+		ft_putnbr_u((n / 10));
+		ft_putchar((n % 10 + '0'));
+	}
+}
+

@@ -4,8 +4,9 @@
 int main()
 {
 	// char *s = "salut les copains";
-
 	// printf("true = [%s]\n", s);
-	ft_printf("%c", 'w');
+	printf("true = %p\n", "coucou");
+    ft_printf("tiens %p voila mon adresse", "coucou");
+    
 	return (0);
 }
