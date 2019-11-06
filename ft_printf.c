@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/05 23:42:28 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/06 12:59:37 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
 void what_type(const char *str, int i, va_list v)
 {
     if (str[i] == 's')
-    {
 		ft_putstr_fd(va_arg(v, char *), 1);
-        // put_s(va_arg(v, char *));
-    }
+    if (str[i] == 'd')
+        ft_putnbr_fd(va_arg(v, int), 1);
+    if (str[i] == 'c')
+        ft_putchar_fd(va_arg(v, char), 1);
 }
 
 int    search_flag(const char *str, int i)
@@ -88,6 +89,7 @@ int     ft_printf(const char *str, ...)
 			{
 				
 			}
+            break;
 		}
 		else
 			write(1, &str[i], 1);

@@ -3,9 +3,9 @@
 
 int main()
 {
-	char *s = "salut les copains";
+	// char *s = "salut les copains";
 
 	// printf("true = [%s]\n", s);
-	ft_printf("%s", s);
+	ft_printf("%c", 'w');
 	return (0);
 }
