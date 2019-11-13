@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/06 20:19:31 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:34:34 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,42 @@ void what_type(const char *str, int i, va_list v)
 int    search_flag(const char *str, int i)
 {
 	int count;
+	char *buff;
 	int nb;
-	
+
 	count = 0;
+	nb = 0;
 	while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
 		|| str[i] != 'i' || str[i] != 'u' || str[i] != 'x' || str[i] != 'X'))
 	{
 		count++;
 		i++;
 	}
-	nb = count;
 	i = i - count;
-	while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
-	|| str[i] != 'i' || str[i] != 'u' || str[i] != 'x' || str[i] != 'X'))
+	printf("i = %d\n", i);
+	printf("count = %d\n", count);
+	if (count > 0)
+		buff = ft_substr(str, i, count - 1);
+	printf("buff = %s\n", buff);
+		i = 0;
+	while (buff[i] != '\0')
 	{
-		if (str[i] == '-')
+		if (buff[i] == '-')
 		{
 
 		}
-		else if (str[i] == '0')
+		else if (buff[i] == '0')
 		{
 
 		}
-		else if (str[i] == '.')
+		else if (buff[i] == '.')
 		{
-
+			
+		}
+		else if ((ft_isdigit(buff[i])) == 1)
+		{
+			nb = ft_atoi(buff);
+			
 		}
 		i++;
 	}

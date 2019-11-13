@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/06 18:49:25 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:09:30 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_base(int nbr, char *base);
 void	ft_putchar(char c);
 void	ft_putnbr_u(unsigned n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+int	ft_atoi(const char *str);
+int	ft_isdigit(int c);
 int     main();
 
 #endif
