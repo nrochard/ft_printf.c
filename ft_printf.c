@@ -60,18 +60,20 @@ int    search_flag(const char *str, int i, va_list v)
 	nb_zero = 0;
 	nb_space = 0;
 	i = 0;
-	printf("qui es tu = %c\n", str[i]);
+	
 	if (str[i] && (str[i] == 'c' || str[i] == 's' || str[i] == 'p' || str[i] == 'd'
-		|| str[i] == 'i' || str[i] == 'u' || str[i] == 'x' || str[i] == 'X'))
+		|| str[i] == 'i' || str[i] == 'u' || str[i + 1] == 'x' || str[i] == 'X'))
 	{
-		printf("ici\n");
+		printf("ici = %c\n", str[i]);
 		what_type(str, i, v);
 		return (1);
 	}
-	printf("\nstr= %s\n", str);
-	while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
+	else
+	{
+		while (str[i] && (str[i] != 'c' || str[i] != 's' || str[i] != 'p' || str[i] != 'd'
 		|| str[i] != 'i' || str[i] != 'u' || str[i] != 'x' || str[i] != 'X'))
-	{ 
+		{
+		printf("qui es tu toi = %c\n", str[i]);
 		if (str[i] == '-')
 			check = 1;
 		if (str[i] == '0')
@@ -86,13 +88,15 @@ int    search_flag(const char *str, int i, va_list v)
 				nb_zero = ft_atoi(str);
 			}
 		}
-		if (str[i] > 0 && str[i] <= 9)
+		if (str[i] > '0' && str[i] <= '9')
 		{
-			nb_space = ft_atoi(str);
+			printf("str = %s\n", str);
+			nb_space = ft_atoi(&str[i]);
 			printf("space = %d\n", nb_space);
 		}  
 		i++;
-	}
+		}
+	}	
 	return (0);
 }
 	
@@ -104,15 +108,15 @@ int     ft_printf(const char *str, ...)
 	int count_print;
 	int ret = 0;
 
-	i = -1;
+	i = 0;
 	count_print = 0;
 	va_start (v, str);
-	while (str[++i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			printf("j'envoi quoi = %s\n", &str[i]);
-			ret = (search_flag(&str[i], i + 1, v));
+			printf("j'envoi quoi = %s\n", &str[i + 1]);
+			ret = (search_flag(&str[i + 1], 0, v));
 			i = i + ret;
 		}
 		else
@@ -120,6 +124,7 @@ int     ft_printf(const char *str, ...)
 			write(1, &str[i], 1);
 			count_print++;
 		}
+		i++;
 	}
 	return (1);
 	// return (< 0 si echec)

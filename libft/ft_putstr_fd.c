@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:39:32 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/13 18:30:09 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:26:35 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int i;
-
 	i = 0;
 	if (s == NULL)
 		return ;
