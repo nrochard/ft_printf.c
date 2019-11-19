@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/07 15:09:30 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:29:03 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include <string.h>
 # include <stdlib.h>
 
+struct t_list
+{
+    int i;
+};
+
 
 int     ft_printf(const char *str, ...);
 void	ft_putstr_fd(char *s, int fd);
@@ -30,6 +35,7 @@ void	ft_putnbr_u(unsigned n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	ft_atoi(const char *str);
 int	ft_isdigit(int c);
+size_t	ft_strlen(const char *str);
 int     main();
 
 #endif
