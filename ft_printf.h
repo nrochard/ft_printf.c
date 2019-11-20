@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/13 19:29:03 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/19 23:23:04 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@
 # include <string.h>
 # include <stdlib.h>
 
-struct t_list
+typedef struct	s_list
 {
-    int i;
-};
+	int			i;
+	int			check;
+	int			nb_zero;
+	int			ret;
+	int			nb_space;
+	char		*stock;
+}				t_list;
 
 
 int     ft_printf(const char *str, ...);
@@ -36,6 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	ft_atoi(const char *str);
 int	ft_isdigit(int c);
 size_t	ft_strlen(const char *str);
+char		*ft_itoa(int n);
 int     main();
 
 #endif
