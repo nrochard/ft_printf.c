@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/06 18:50:56 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 01:29:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		check_base(char *base, int i)
 	return (i);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base, t_list *l)
 {
 	unsigned int	i;
 	unsigned int	a;
@@ -57,15 +57,15 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (nbr < 0)
 	{
 		a = -nbr;
-		ft_putchar('-');
+		ft_putchar('-', l);
 	}
 	else
 		a = nbr;
 	if (a < i)
-		ft_putchar(base[a]);
+		ft_putchar(base[a], l);
 	else
 	{
-		ft_putnbr_base(a / i, base);
-		ft_putchar(base[a % i]);
+		ft_putnbr_base(a / i, base, l);
+		ft_putchar(base[a % i], l);
 	}
 }

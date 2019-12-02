@@ -6,11 +6,11 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:22:24 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/18 19:10:08 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static char	*manage_nb(int count, long nb2, int n)
 {

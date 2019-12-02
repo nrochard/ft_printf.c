@@ -6,11 +6,11 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:02:57 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/19 11:51:12 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:28:48 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/13 18:30:22 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

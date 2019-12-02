@@ -3,15 +3,39 @@
 
 int main()
 {
+    // printf("%s\n", "je t'aime");
+    // ft_printf("%s\n", "je t'aime");
 
-	// printf("true = [%s]\n", s);
-	// printf("coucou %-8.12d amis %s\n", 9, "d'angers");
-    printf("coucou %10d amis %s\n", 2780, "d'angers");
-    ft_printf("coucou %10d amis %s\n", 2780, "d'angers");
+    // printf("%d\n", 1234);
+    // ft_printf("%d\n", 1234);
     
-    // char *s = "salut les copains";
-    // printf("true = [%10.24]\n", s);
-    // ft_printf("%s", s);
+    // printf("%i\n", 1234);
+    // ft_printf("%i\n", 1234);
+
+    // printf("%c\n", 'c');
+    // ft_printf("%c\n", 'c');
+
+    // printf("%c\n", 'c');
+    // ft_printf("%c\n", 'c');
+
+    // printf("real_ function = [%u]\n", 7890);
+    // ft_printf("%u\n", 7890);
     
+    // printf("real_ function = [%p]\n", 7890);
+    // ft_printf("%p\n", 7890);
+
+    // printf("real_ function = [%x]\n", 7890);
+    // ft_printf("%x\n", 7890);
+
+    // printf("real_ function = [%X]\n", 7890);
+    // ft_printf("%X\n", 7890);
+
+
+    // printf("real_ function = [%X] et [%d] et [%s]\n", 7890, 2365447, "vive les chats");
+    // ft_printf("%X et %d et %s\n", 7890, 2365447, "vive les chats");
+
+    printf("%d\n", printf("|%00d|\n", 150));
+    printf("%d\n", ft_printf("|%0*d|\n", -0, 150));
+
 	return (0);
 }

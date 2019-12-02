@@ -6,13 +6,14 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:30:04 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/06 18:48:24 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 01:22:31 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd, t_list *l)
 {
 	write(fd, &c, 1);
+    l->count_print++;
 }

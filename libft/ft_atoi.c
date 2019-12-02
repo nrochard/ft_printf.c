@@ -6,11 +6,11 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 16:45:12 by nrochard          #+#    #+#             */
-/*   Updated: 2019/10/18 14:39:58 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_atoi(const char *str)
 {
