@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:49:36 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/06 20:08:40 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *src)
 	len = 0;
 	while (src[i] != '\0')
 		i++;
-	len = i + 1;
+	len = i;
 	i = 0;
 	if (!(dest = malloc(sizeof(char) * len)))
 		return (0);
@@ -31,6 +31,6 @@ char	*ft_strdup(const char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	// dest[i] = '\0';
 	return (dest);
 }

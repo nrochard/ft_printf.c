@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/28 01:29:10 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/06 22:24:49 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		check_base(char *base, int i)
 	return (i);
 }
 
-void	ft_putnbr_base(int nbr, char *base, t_list *l)
+void	ft_putnbr_base(unsigned int nbr, char *base, t_list *l)
 {
 	unsigned int	i;
 	unsigned int	a;

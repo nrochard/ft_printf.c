@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/28 01:33:15 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/06 22:25:02 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd, t_list *l);
 void				ft_putnbr_fd(int n, int fd, t_list *l);
-void	            ft_putnbr_base(int nbr, char *base, t_list *l);
+void	            ft_putnbr_base(unsigned int nbr, char *base, t_list *l);
 void	            ft_putstr_fd(char *s, int fd, t_list *l);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *src);
