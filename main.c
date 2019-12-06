@@ -34,8 +34,8 @@ int main()
     // printf("real_ function = [%X] et [%d] et [%s]\n", 7890, 2365447, "vive les chats");
     // ft_printf("%X et %d et %s\n", 7890, 2365447, "vive les chats");
 
-    printf("%d\n", printf("|%00d|\n", 150));
-    printf("%d\n", ft_printf("|%0*d|\n", -0, 150));
+    printf("%d\n", printf("|%-100.45d|\n", 150));
+    printf("%d\n", ft_printf("|%-100.45d|\n", 150));
 
 	return (0);
 }
