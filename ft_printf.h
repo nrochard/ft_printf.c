@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/06 22:25:02 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/09 20:07:16 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_list
 {
 	int			i;
 	int			check;
+	int			sign;
 	int			nb_zero;
 	int			ret;
 	int			nb_space;
@@ -39,11 +40,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int     ft_atoi(const char *str);
 int     ft_isdigit(int c);
 size_t  ft_strlen(const char *str);
-char	*ft_itoa(int n);
+char		*ft_itoa(int n, t_list *l);
 int     main();
 
 int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd, t_list *l);
 void				ft_putnbr_fd(int n, int fd, t_list *l);
 void	            ft_putnbr_base(unsigned int nbr, char *base, t_list *l);

@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:22:24 by nrochard          #+#    #+#             */
-/*   Updated: 2019/11/28 00:19:10 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/09 20:19:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,36 @@ static char	*manage_nb(int count, long nb2, int n)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(int n, t_list *l)
 {
 	long	nb;
 	long	nb2;
 	char	*str;
 	int		count;
+    (void)l;
 
 	nb = n;
 	count = 0;
 	str = NULL;
-	if (n == 0)
-		return (ft_strdup("0"));
+    // if (n == 0)
+    //     printf("l->c = %d\n", l->check);
+	if (n == 0 && l->check == 5 && l->sign == 0)
+	{
+        // printf("0000000000\n");
+        return (ft_strdup(""));
+    }
+    else if (n == 0)
+        return (ft_strdup("0"));
+    // else if (n == 0 && l->check == 5 && str[l->i - 2] == '-')
+    // {  
+    //     // printf("0000000000\n");
+    //     return (ft_strdup(""));
+    // }
+    // else if (n == 0 && l->check == 5 && str[l->i - 2] != '-')
+    // {
+    //     return (ft_strdup("0"));
+    // }
+    // printf("0000000000\n");
 	if (n < 0)
 	{
 		nb = nb * -1;

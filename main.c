@@ -53,7 +53,6 @@ int main()
 	// printf("real_ function = [%X]\n", 7890);
 	// ft_printf("%X\n", 7890);
 
-
 	// printf("real_ function = [%X] et [%d] et [%s]\n", 7890, 2365447, "vive les chats");
 	// ft_printf("%X et %d et %s\n", 7890, 2365447, "vive les chats");
 
@@ -72,27 +71,30 @@ int main()
 	//printf("%d\n", printf("%4i, %4d, %4d, %4d, %4d, %4d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%4i, %4d, %4d, %4d, %4d, %4d", i, j, k, l, m, c));
 
-
-	//printf("%d\n", printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c));
-	// printf("%d\n", ft_printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c));  PROBLEME %0.0
-
+	// printf("%d\n", printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c));
 
 	// printf("%d\n", printf("|%0.d|", 0));
 	// printf("%d\n", ft_printf("|%0.d|", 0));
 
-
 	// 	printf("%d\n", printf("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c));
-	// printf("%d\n", ft_printf("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c));                                                PROBLEME AVEC %.00
+	// printf("%d\n", ft_printf("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c));
 
-		printf("%d\n", printf("%-0i, %-0d, %-0d, %-0d, %-0d, %-0d", i, j, k, l, m, c));
-	printf("%d\n", ft_printf("%-0i, %-0d, %-0d, %-0d, %-0d, %-0d", i, j, k, l, m, c));
+    // printf("%d\n", printf("|%.0i|\n", 0));
+    // printf("%d\n", ft_printf("|%.0i|\n", 0));
 
-		// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-	// printf("%d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-		// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-	// printf("%d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-		// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-	// printf("%d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
+    // printf("%d\n", printf("%-0i, %-0d, %-0d, %.0d, %0d, %-0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%-0i, %-0d, %-0d, %.0d, %0d, %-0d", i, j, k, l, m, c));
+
+	printf("%d\n", printf("%-.i, %-.d, %-.d, %-.d, %-.d, %-.d", i, j, k, l, m, c));
+    printf("%d\n", ft_printf("%-.i, %-.d, %-.d, %-.d, %-.d, %-.d", i, j, k, l, m, c));
+
+	// printf("%d\n", printf("%-01i, %-01d, %-01d, %-01d, %-01d, %-01d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%-01i, %-01d, %-01d, %-01d, %-01d, %-01d", i, j, k, l, m, c));
+
+	// 	printf("%d\n", printf("%*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+	// printf("%d\n", ft_printf("%*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+
 		// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
 	// printf("%d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
 		// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));

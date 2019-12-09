@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/06 22:24:49 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/09 19:18:24 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_putnbr_base(unsigned int nbr, char *base, t_list *l)
 	while (base[i] != '\0')
 		i++;
 	fail = check_base(base, i);
+    printf("ici\n");
 	if (fail == 0)
 		return ;
 	if (nbr < 0)
