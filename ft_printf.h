@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/09 20:07:16 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/12 02:19:07 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int     ft_atoi(const char *str);
 int     ft_isdigit(int c);
 size_t  ft_strlen(const char *str);
 char		*ft_itoa(int n, t_list *l);
+char		*ft_itoa_u(unsigned int n, t_list *l);
 int     main();
 
 int					ft_atoi(const char *str);

@@ -124,13 +124,20 @@ int display_precision_with_dash(t_list *l)
 int display_precision(t_list *l)
 {
 	// printf("check = %d\n", l->check);
-
+    if (l->nb_space == 0 && l->nb_zero == 0)
+    {   
+        if (l->stock[0] != '0')
+            ft_putstr_fd(l->stock, 1, l);
+        else
+            ft_strdup("");
+        return(0);
+    }    
 	if (l->nb_space <= l->nb_zero)
 	{
 		display_inferior(l);
 		return(0);
 	}
-	else if (l->nb_space > l->nb_zero)
+	if (l->nb_space > l->nb_zero)
 	{
 		display_superior(l);
 		return(0);
@@ -173,7 +180,7 @@ void display_zero(t_list *l)
 	// printf("COUCOU\n");
 	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
 	// printf("space = %d", l->nb_space);
-	while (l->nb_zero != 0)
+	while (l->nb_zero > 0)
 	{
 		ft_putchar('0', l);
 		l->nb_zero--;
@@ -188,7 +195,7 @@ void display_dash(t_list *l)
 	ft_putstr_fd(l->stock, 1, l);
 	// printf("%s\n", l->stock);
 	l->nb_space = l->nb_space - ft_strlen(l->stock);
-	while (l->nb_space != 0)
+	while (l->nb_space > 0)
 	{
 		ft_putchar(' ', l);
 		l->nb_space--;
@@ -227,14 +234,14 @@ char *manage_type(const char *str, t_list *l, va_list v)
 	else if (str[l->i] == 'i')
 		l->stock = ft_itoa(va_arg(v, int), l);
 	else if (str[l->i] == 'u')
-		l->stock = ft_itoa(va_arg(v, int), l);
+		l->stock = ft_itoa_u(va_arg(v, unsigned int), l);
 	else if (str[l->i] == 'p')
 		put_p(va_arg(v, int), l);
 	else if (str[l->i] == 'x')
 	{
-		printf("#######\n");
+		// printf("#######\n");
 		ft_putnbr_base(va_arg(v, unsigned int), "0123456789abcdef", l);
-		printf("999999999\n");
+		// printf("999999999\n");
 	}	
 	else if (str[l->i] == 'X')
 		ft_putnbr_base(va_arg(v, unsigned int), "0123456789ABCDEF", l);
@@ -265,6 +272,20 @@ void    manage_space(t_list *l, const char *str)
 	l->i = l->i + l->ret;
 	l->i= l->i - 1;
 
+}
+
+void    manage_star(t_list *l, va_list v)
+{
+    l->nb_space = va_arg(v, int);
+    if (l->nb_space > 0)
+		{
+			l->check = 0;
+		}
+    if (l->nb_space <= 0)
+	{
+		l->check = 3;
+        l->nb_space = -l->nb_space;
+	}
 }
 
 
@@ -346,10 +367,12 @@ void manage_dash(t_list *l, const char *str)
 	l->i++;
 	l->check = 3;
 	l->sign = 1;
+    // printf("nb _space = %d", l->nb_space);
 	l->nb_space = ft_atoi(&str[l->i]);
 	// printf("nb _space = %d", l->nb_space);
 	l->ret = how_long(l->nb_space);
 	l->i = l->i + l->ret - 1;
+    // printf("nb _space = %d", l->nb_space);
 }
 
 
@@ -423,8 +446,11 @@ int    search_flag(const char *str, va_list v, t_list *l)
 		}	
 		else if (str[l->i] == '.')
 		{
-			// printf("COUCOUUUU\n");
 			l->check = l->check + 4;
+		}
+        else if (str[l->i] == '*')
+		{
+			manage_star(l , v);
 		}
 		// printf("quel index1 = %d\n", l->i);
 		// printf("carac actu = [%c]\n", str[l->i]);
@@ -435,8 +461,9 @@ int    search_flag(const char *str, va_list v, t_list *l)
 	// printf("carac actu = [%c]\n", str[l->i]);
 	if (which_letter(str, l->i) == 1)
 		l->stock = manage_type(str, l, v);
-	// printf("stock after take= %s\n", l->stock);	
-		// printfxs("check = %d\n", l->check);
+	// printf("stock after take= '%s'\n", l->stock);	
+	printf("check = %d\n", l->check);
+    printf("sign = %d\n", l->sign);
    
 	if (l->check == 0)
 	{
@@ -447,10 +474,13 @@ int    search_flag(const char *str, va_list v, t_list *l)
 		display_zero(l);
 	else if (l->check == 3)
 	{
-		// printf("**********\n");
+		// printf("**********\  /n");
 		display_dash(l);
+        // printf("$$$$$/$$$\n");
 	}
-	else if(l->check == 4){
+	else if(l->check == 4)
+    {
+        // printf("**********\  /n");
 		display_precision(l);
 	}
 	else if (l->check == 5)
@@ -466,6 +496,7 @@ int    search_flag(const char *str, va_list v, t_list *l)
 			display_precision_with_dash(l);
 		}
 	}
+    // printf("$$$$$$$$\n");
 	return (l->i++);
 }
 	
@@ -493,6 +524,7 @@ void	reset_list(t_list *l)
 	l->nb_zero = 0;
 	l->sign = 0;
 	l->ret = 0;
+    // free(l->stock);
 }
 
 int     ft_printf(const char *str, ...)
