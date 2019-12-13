@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:22:24 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/12 03:09:57 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/13 02:48:00 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,30 @@ char		*ft_itoa(int n, t_list *l)
 	nb = n;
 	count = 0;
 	str = NULL;
-    // if (n == 0)
-    //     printf("l->c = %d\n", l->check);
-    if (n == 0 && l->check == 7 && l->sign == 1)
-	{
-        // printf("0000000000\n");
-        return (ft_strdup(""));
-    }
-     if (n == 0 && l->check == 5 && l->sign == 0)
-	{
-        // printf("0000000000\n");
+    if (l->check_point == 0 && l->check_dash == 0 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0 && n == 0)
+    {
+        // printf("i=||||||||s||");
         return (ft_strdup("0"));
     }
-    if (n == 0 && l->check == 5 && l->sign == 1)
-	{
-        // printf("0000000000\n");
-        return (ft_strdup(""));
-    }
-    if (n == 0)
+    else if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0 && n == 0)
     {
-        return(ft_strdup("0"));
+        // printf("i=||||||||s||");
+         return (ft_strdup("0"));
+    }
+    else if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 1 && l->nb_zero == 0 && n == 0)
+     {
+        // printf("i=||||||||s||");
+         return (ft_strdup("0"));
+    }
+    else if ( l->check_point == 0 && l->check_dash == 0 && l->check_space == 0 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0 && n == 0)
+     {
+        // printf("i=||||||||s||");
+         return (ft_strdup("0"));
+    }
+    else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 1 && n == 0)
+    {
+        // printf("i=||||||||s||");
+         return (ft_strdup("0"));
     }
 	if (n < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:36:35 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/12 00:17:59 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:45:55 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ char		*ft_itoa_u(unsigned int n, t_list *l)
 	str = NULL;
     // if (n == 0)
     //     printf("l->c = %d\n", l->check);
-    if (n == 0 && l->check == 7 && l->sign == 1)
-	{
-        // printf("0000000000\n");
-        return (ft_strdup(""));
-    }
-     if (n == 0 && l->check == 5 && l->sign == 0)
-	{
-        // printf("0000000000\n");
-        return (ft_strdup(""));
-    }
     if (n == 0)
     {
         return(ft_strdup("0"));

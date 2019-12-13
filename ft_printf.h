@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/12 02:19:07 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:46:12 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@
 typedef struct	s_list
 {
 	int			i;
-	int			check;
+	int			check_space;
+    int			check_zero;
+    int			check_point;
+    int			check_dash;
 	int			sign;
 	int			nb_zero;
 	int			ret;

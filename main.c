@@ -50,8 +50,9 @@ int main()
 	// printf("real_ function = [%x]\n", 7890);
 	// ft_printf("%x\n", 7890);
 
-	// printf("real_ function = [%X]\n", 7890);
-	// ft_printf("%X\n", 7890);
+
+    // printf("%d\n", printf("[%-.0d]\n", 7890));
+	// printf("%d\n", ft_printf("[%-.0d]\n", 7890));
 
 	// printf("real_ function = [%X] et [%d] et [%s]\n", 7890, 2365447, "vive les chats");
 	// ft_printf("%X et %d et %s\n", 7890, 2365447, "vive les chats");
@@ -60,7 +61,7 @@ int main()
 	// printf("%d\n", ft_printf("%2i, %2d, %2d, %2d, %2d, %2d", i, j, k, l, m, c));
 
 	// printf("%d\n", printf("%1i, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c));
-	// // printf("%d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c));
 
 	// printf("%d\n", printf("%0i, %0d, %0d, %0d, %0d, %0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%0i, %0d, %0d, %0d, %0d, %0d", i, j, k, l, m, c));
@@ -80,11 +81,11 @@ int main()
 	// 	printf("%d\n", printf("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c));
 
-    // printf("%d\n", printf("|%.0i|\n", 0));
-    // printf("%d\n", ft_printf("|%.0i|\n", 0));
+    // printf("%d\n", printf("|%-0i|\n", 0));
+    // printf("%d\n", ft_printf("|%-0i|\n", 0));
 
-    // printf("%d\n", printf("%-0i, %-0d, %-0d, %.0d, %0d, %-0d", i, j, k, l, m, c));
-	// printf("%d\n", ft_printf("%-0i, %-0d, %-0d, %.0d, %0d, %-0d", i, j, k, l, m, c));
+    // printf("%d\n", printf("%-0i, %-0d, %-0d, %-0d, %-0d, %-0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%-0i, %-0d, %-0d, %-0d, %-0d, %-0d", i, j, k, l, m, c));
 
 	// printf("%d\n", printf("%-.i, %-.d, %-.d, %-.d, %-.d, %-.d", i, j, k, l, m, c));
     // printf("%d\n", ft_printf("%-.i, %-.d, %-.d, %-.d, %-.d, %-.d", i, j, k, l, m, c));
@@ -116,11 +117,33 @@ int main()
     // 	printf("%d\n", printf("%00i, %00d, %00d, %00d, %00d, %00d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%00i, %00d, %00d, %00d, %00d, %00d", i, j, k, l, m, c));
 
-    	printf("%d\n", printf("%-0.1i, %-0.1d, %-0.1d, %-0.1d, %-0.1d, %-0.1d", i, j, k, l, m, c));
-	printf("%d\n", ft_printf("%-0.1i, %-0.1d, %-0.1d, %-0.1d, %-0.1d, %-0.1d", i, j, k, l, m, c));
+    // 	printf("%d\n", printf("%-0.1i, %-0.1d, %-0.1d, %-0.1d, %-0.1d, %-0.1d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%-0.1i, %-0.1d, %-0.1d, %-0.1d, %-0.1d, %-0.1d", i, j, k, l, m, c));
 
-    	// printf("%d\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
-	// printf("%d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
+    // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+
+    //   	printf("%d\n", printf("%1s, %1s, %1s, %1s, %1s", n, o, p, q, r));
+	// printf("%d\n", ft_printf("%1s, %1s, %1s, %1s, %1s", n, o, p, q, r));
+
+  	// printf("%d\n", printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, -42, a, b, 42, -a, -b, -42, -a, -b, 42, -a, b, -42, -a, b, 42, a, -b, -42, a, -b, 42));
+	// printf("%d\n", ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, -42, a, b, 42, -a, -b, -42, -a, -b, 42, -a, b, -42, -a, b, 42, a, -b, -42, a, -b, 42));
+
+  	// printf("%d\n", printf("%2s, %2s, %2s, %2s, %2s", n, o, p, q, r));
+	// printf("%d\n", ft_printf("%2s, %2s, %2s, %2s, %2s", n, o, p, q, r));
+
+  	// printf("%d\n", printf("%16s, %16s, %16s, %16s, %16s", n, o, p, q, r));
+	// printf("%d\n", ft_printf("%16s, %16s, %16s, %16s, %16s", n, o, p, q, r));
+
+  // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+
+  // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+
+  // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+
 
 
 	return (0);
