@@ -30,125 +30,6 @@ void    put_p(int s, t_list *l)
 	ft_putstr_fd(l->stock, 1, l);
 }
 
-void display_inferior(t_list *l)
-{
-	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
-	
-	while (l->nb_zero != 0)
-	{
-		// printf("viddaaaaaa\n");
-		ft_putchar('0', l);
-		l->nb_zero--;
-	}
-
-	ft_putstr_fd(l->stock, 1, l);
-}
-
-
-void display_inferior2(t_list *l)
-{
-	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
-	
-	while (l->nb_zero != 0)
-	{
-		// printf("viddaaaaaa\n");
-		ft_putchar('0', l);
-		l->nb_zero--;
-	}
-
-	ft_putstr_fd(l->stock, 1, l);
-}
-
-void display_superior(t_list *l)
-{
-	l->nb_space = l->nb_space - l->nb_zero;
-	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
-	
-	while (l->nb_space != 0)
-	{
-		// printf("COUCOU\n");
-		ft_putchar(' ', l);
-		l->nb_space--;
-	}
-	// printf ("stock = %s\n", l->stock)'
-
-	while (l->nb_zero != 0)
-	{
-		// printf("viddaaaaaa\n");
-		ft_putchar('0', l);
-		l->nb_zero--;
-	}
-
-	ft_putstr_fd(l->stock, 1, l);
-}
-
-
-void display_superior2(t_list *l)
-{
-	l->nb_space = l->nb_space - l->nb_zero;
-	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
-	
-	while (l->nb_zero != 0)
-	{
-		// printf("viddaaaaaa\n");
-		ft_putchar('0', l);
-		l->nb_zero--;
-	}
-
-	ft_putstr_fd(l->stock, 1, l);
-
-	while (l->nb_space != 0)
-	{
-		// printf("COUCOU\n");
-		ft_putchar(' ', l);
-		l->nb_space--;
-	}
-	// printf ("stock = %s\n", l->stock)'
-
-}
-
-int display_precision_with_dash(t_list *l)
-{
-	if (l->nb_space <= l->nb_zero)
-	{
-		display_inferior2(l);
-		return(0);
-	}
-	else if (l->nb_space > l->nb_zero)
-	{
-		display_superior2(l);
-		return(0);
-	}
-	return(0);
-}
-
-int display_precision(t_list *l)
-{   
-	if (l->nb_space <= l->nb_zero)
-	{
-		display_inferior(l);
-		return(0);
-	}
-	if (l->nb_space > l->nb_zero)
-	{
-		display_superior(l);
-		return(0);
-	}	
-
-	// while (l->nb_space != 0)
-	// {
-	// 	// printf("COUCOU\n");
-	// 	ft_putchar(' ', l);
-	// 	l->nb_space--;
-	// }
-	// while (l->nb_zero != 0)
-	// {
-	// 	ft_putchar('0', l);
-	// 	l->nb_zero--;
-	// }
-	ft_putstr_fd(l->stock, 1, l);
-	return(0);
-}
 
 void display_space(t_list *l)
 {
@@ -169,10 +50,324 @@ void display_space(t_list *l)
 	
 }
 
+void display_space_with_dash(t_list *l)
+{
+	// printf("nb _space22222 = %d\n", l->nb_space);
+	ft_putstr_fd(l->stock, 1, l);
+	// printf("%s\n", l->stock);
+	l->nb_space = l->nb_space - ft_strlen(l->stock);
+	while (l->nb_space > 0)
+	{
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+}
+
+
+void display_inferior(t_list *l)
+{	
+	if (l->negative == 1)
+	{
+		ft_putchar('-', l);
+		l->tmp = 1;
+	}
+	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
+
+	while (l->nb_zero >= 0)
+	{
+		
+		ft_putchar('0', l);
+		l->nb_zero--;
+	}
+
+	ft_putstr_fd(l->stock, 1, l);
+}
+
+void display_inferior2(t_list *l)
+{
+	ft_putstr_fd(l->stock, 1, l);
+
+	l->nb_space = -l->nb_space;
+	l->nb_space = l->nb_space - ft_strlen(l->stock);
+
+	if (l->negative == 1)
+		l->nb_space--;
+
+	while (l->nb_space >= 0)
+	{
+		// printf("viddaaaaaa\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+}
+
+void display_superior(t_list *l)
+{
+	if (l->nb_zero == 0)
+	{
+		l->nb_space -= ft_strlen(l->stock);
+		l->nb_space--;
+	}	
+	else
+	{
+		l->nb_space = l->nb_space - ft_strlen(l->stock);
+		l->nb_space--;
+	}	
+
+	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
+
+	while (l->nb_space >= 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+	// printf ("stock = %s\n", l->stock)'
+
+	while (l->nb_zero >= 0)
+	{
+		// printf("viddaaaaaa\n");
+		ft_putchar('0', l);
+		l->nb_zero--;
+	}
+
+	ft_putstr_fd(l->stock, 1, l);
+}
+
+
+void display_superior2(t_list *l)
+{
+	if (l->negative == 1)
+	{
+		ft_putchar('-', l);
+		l->tmp = 1;
+	}
+	if (l->nb_space < 0)
+		l->nb_space = -l->nb_space;
+	l->nb_space = l->nb_space - ft_strlen(l->stock);
+	// printf("Nb space = %d\n", l->nb_space);
+	l->nb_zero = l->nb_zero - ft_strlen(l->stock) + 1;
+
+	while (l->nb_zero > 0)
+	{
+		// printf("viddaaaaaa\n");
+		ft_putchar('0', l);
+		l->nb_zero--;
+	}
+	
+	ft_putstr_fd(l->stock, 1, l);
+
+	while (l->nb_space > 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+	// printf ("stock = %s\n", l->stock)'
+
+}
+
+int display_precision_with_dash(t_list *l)
+{
+	if (l->sign == 1)
+	{
+		display_space_with_dash(l);
+	}
+
+	if (l->sign == 0)
+	{
+		l->nb_space = -l->nb_space;
+		// printf("nb space = %d\n", l->nb_space);
+		if (l->nb_space >= l->nb_zero)
+		{
+			display_inferior2(l);
+			return(0);
+		}
+		if (l->nb_space < l->nb_zero)
+		{
+			// printf("ici\n");
+			display_superior2(l);
+			return(0);
+		}
+	}
+	return (0);
+}
+
+int display_precision(t_list *l)
+{
+	// printf("zero = %d\n", l->nb_zero);
+	// printf("spac = %d\n", l->nb_space);
+	if (l->sign == 1)
+	{
+		display_space(l);
+	}
+
+	else if (l->sign == 0)
+	{
+		if (l->nb_space <= l->nb_zero)
+		{
+			display_inferior(l);
+			return(0);
+		}
+		if (l->nb_space > l->nb_zero)
+		{
+			// printf("COUCOU\n");
+			display_superior(l);
+			return(0);
+		}
+		ft_putstr_fd(l->stock, 1, l);
+	}
+
+	// while (l->nb_space != 0)
+	// {
+	// 	// printf("COUCOU\n");
+	// 	ft_putchar(' ', l);
+	// 	l->nb_space--;
+	// }
+	// while (l->nb_zero != 0)
+	// {
+	// 	ft_putchar('0', l);
+	// 	l->nb_zero--;
+	// }
+	
+	return(0);
+}
+
+void	display_precision_with_dash_letter(t_list *l)
+{
+	ft_putstr_letter(l->stock, l);
+	// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+	// printf("NOMBRE space = %d\n", l->nb_space);
+	// printf("SIGN = %d\n", l->sign);
+	if (l->sign == 1 && l->check_dash == 1)
+	{
+		// printf("COUCOU\n");
+		if (l->nb_space < (int)ft_strlen(l->stock))
+			return;
+		else
+		{
+			l->nb_space = l->nb_space - ft_strlen(l->stock);
+			while (l->nb_space > 0)
+			{
+				// printf("COUCOU\n");
+				ft_putchar(' ', l);
+				l->nb_space--;
+			}
+		}
+	}
+	else if (l->nb_zero >= (int)ft_strlen(l->stock))
+	{
+		// printf("sICIIIIIIII\n");
+		if (l->nb_space > (int)ft_strlen(l->stock))
+			l->nb_space = l->nb_space - ft_strlen(l->stock);
+		else
+		{
+				return;
+		}	
+	}
+	else if (l->check_zero == 1 && l->check_dash == 1)
+	{
+		// printf("COUCOU\n");
+		while (l->nb_space > 0)
+			{
+				// printf("COUCOU\n");
+				ft_putchar(' ', l);
+				l->nb_space--;
+			}
+	}
+	else if ((l->nb_space <= l->nb_zero) && (l->nb_space < (int)ft_strlen(l->stock)))
+		return;
+	else
+		l->nb_space = l->nb_space - l->nb_zero;
+	while (l->nb_space > 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+}
+
+void	display_precision_letter(t_list *l)
+{
+	// if (l->nb_space > l->nb_zero)
+	// {
+		// l->nb_space = l->nb_space - ft_strlen(l->stock);
+		// printf("display sace with letter = %d\n", l->nb_space);
+		if (l->nb_space > 0)
+		{
+			while (l->nb_space > 0)
+			{
+				// printf("COUCOU\n");
+				ft_putchar(' ', l);
+				l->nb_space--;
+			}
+		}
+		
+		ft_putstr_letter(l->stock, l);
+	// }
+	// else if (l->nb_space <= l->nb_zero)
+	// {
+	// 	if (l->nb_space > (int)ft_strlen(l->stock))
+	// 	{
+	// 		l->nb_space = l->nb_space - ft_strlen(l->stock);
+	// 		while (l->nb_space > 0)
+	// 		{
+	// 			// printf("COUCOU\n");
+	// 			ft_putchar(' ', l);
+	// 			l->nb_space--;
+	// 		}
+	// 	}
+	// 	ft_putstr_letter(l->stock, l);
+	// }
+	
+}
+
+
+void	display_only_space_letter(t_list *l)
+{
+	while (l->nb_space > 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+}
+
+void	display_space_letter(t_list *l)
+{
+	l->nb_space -= ft_strlen(l->stock);
+	while (l->nb_space > 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+	ft_putstr_fd(l->stock, 1, l);
+}
+
+void	display_space_with_dash_letter(t_list *l)
+{
+	ft_putstr_letter2(l->stock, l);
+	l->nb_space = l->nb_space - ft_strlen(l->stock);
+	while (l->nb_space > 0)
+	{
+		// printf("COUCOU\n");
+		ft_putchar(' ', l);
+		l->nb_space--;
+	}
+}
+
 void display_zero2(t_list *l)
 {
-	// printf("COUCOU\n");
-	l->nb_zero = l->nb_zero - ft_strlen(l->stock);
+	// printf("COUCsOU\n");
+	
+	if (l->negative == 1)
+	{
+		ft_putchar('-', l);
+		l->tmp = 1;
+	}	
+	l->nb_zero = l->nb_zero - ft_strlen(l->stock) + 1;
+	// l->nb_zero--;
 	// printf("space = %d", l->nb_space);
 	while (l->nb_zero > 0)
 	{
@@ -197,18 +392,6 @@ void display_zero(t_list *l)
 	ft_putstr_fd(l->stock, 1, l);
 }
 
-void display_space_with_dash(t_list *l)
-{
-	// printf("nb _space22222 = %d\n", l->nb_space);
-	ft_putstr_fd(l->stock, 1, l);
-	// printf("%s\n", l->stock);
-	l->nb_space = l->nb_space - ft_strlen(l->stock);
-	while (l->nb_space > 0)
-	{
-		ft_putchar(' ', l);
-		l->nb_space--;
-	}
-}
 
 char  *manage_c(int d)
 {
@@ -223,7 +406,14 @@ char  *manage_c(int d)
 char *manage_type(const char *str, t_list *l, va_list v)
 {
 	if (str[l->i] == 's')
-		l->stock = (ft_strdup(va_arg(v, char *)));
+	{
+		// printf("va arg = %s", va_arg(v, char *));
+		// printf("quel carac %c\n", str[l->i]);
+		// printf("VIENS TU LA\n");
+		l->stock = ft_strdup(va_arg(v, char *));
+		// printf("stock after take= '%s'\n", l->stock);	
+
+	}	
 	else if (str[l->i] == 'd')
 	{	
 		// printf("ici\n");
@@ -299,19 +489,17 @@ void    manage_space(t_list *l, const char *str)
 void    manage_star_space(t_list *l, va_list v)
 {
 	l->nb_space = va_arg(v, int);
+	// printf("nb_space = %d\n", l->nb_space);
 	if (l->nb_space == 0) 
 	{
 		l->check_space = 1;
-		l->i++;
-		return ;
 	}
 	else if (l->nb_space < 0)
 	{
 		l->check_dash = 1;
 		l->nb_space = -l->nb_space;
 	}
-	l->ret = how_long(l->nb_space);
-	l->i = l->i + l->ret;
+	l->i++;
 }
 
 void    manage_zero(t_list *l, const char *str)
@@ -336,6 +524,7 @@ void    manage_zero(t_list *l, const char *str)
 void    manage_star_zero(t_list *l, va_list v)
 {
 	l->nb_zero = va_arg(v, int);
+	// printf("nb_zero = %d\n", l->nb_zero);
 	if (l->nb_zero == 0) 
 	{
 		l->check_zero = 1;
@@ -344,12 +533,13 @@ void    manage_star_zero(t_list *l, va_list v)
 	}
 	else if (l->nb_zero < 0)
 	{
-		l->check_dash = 1;
+		l->sign = 1;
 		l->nb_zero = -l->nb_zero;
+		l->i++;
+		return ;
 	}
 	l->ret = how_long(l->nb_zero);
 	l->i = l->i + l->ret;
-	l->i= l->i - 1;
 }
 
 
@@ -380,7 +570,7 @@ int	which_letter(const char *str, int i)
 void what_type(const char *str, int i, va_list v, t_list *l)
 {
 	if (str[i] == 's')
-		ft_putstr_fd(va_arg(v, char *), 1, l);	
+		ft_putstr_null(va_arg(v, char *), 1, l);	
 	else if (str[i] == 'd')
 		ft_putnbr_fd(va_arg(v, int), 1, l);
 	else if (str[i] == 'c')
@@ -419,7 +609,7 @@ void    search_flag(const char *str, va_list v, t_list *l)
 	}
 	if (str[l->i] == '-')
 	{
-		// printf("CHECK DASH\n");
+		// printf("CHECK DASH ||||||||| \n");
 		l->check_dash = 1;
 		l->i++;
 	}
@@ -434,6 +624,8 @@ void    search_flag(const char *str, va_list v, t_list *l)
 		{
 			manage_star_space(l, v);
 		}
+		else
+			l->i++;
 	}
 	if (str[l->i] == '.' && l->i++)
 		l->check_point = 1;
@@ -460,111 +652,336 @@ void    search_flag(const char *str, va_list v, t_list *l)
 	// printf("VERIF CHECK ZERO = %d\n", l->check_zero);
 	// printf("NOMBRE SPACE = %d\n", l->nb_space);
 	// printf("NOMBRE ZERO = %d\n", l->nb_zero);
-
+	// printf("quel carac = |%c|\n", str[l->i]);
 	if (which_letter(str, l->i) == 1)
 		l->stock = manage_type(str, l, v);
-
-	// printf("stock after take= '%s'\n", l->stock);	
-
-
-	if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 1 && l->nb_zero == 0)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-
-	else if ( l->check_point == 0 && l->check_dash == 0 && l->check_space == 0 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		display_space(l);
-	}
-
-	else if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 0 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		// printf("BBBBBBBBBBBB\n");
-		display_space_with_dash(l);
-	}
-
-	else if (l->check_point == 0 && l->check_dash == 0 && l->check_space == 1 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		// printf("CCCCCCCCCCCCC\n");
-		display_zero(l);
-	}
-
-	else if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		// printf("DDDDDDDDDDDD\n");
-		display_space_with_dash(l);
-	}
-
-	else if (l->check_point == 1 && l->check_dash == 0 && l->check_space == 0 && l->check_zero == 0 && l->nb_space != 0 && l->nb_zero != 0)
-	{
-		// printf("EEEEEEEEEEEEE\n");
-		display_precision(l);
-	}
-
-	else if (l->check_point == 1 && l->check_dash == 0 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero != 0)
-	{
-		// printf("FFFFFFFFFFFFFFF\n");
-		display_zero2(l);
-	}
-	
-	else if (l->check_point == 1 && l->check_dash == 0 && l->check_space == 0 && l->check_zero == 1 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		// printf("GGGGGGGGGGGGG\n");
-		display_space(l);
-	}
-
-	else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 0 && l->check_zero == 1 && l->nb_space != 0 && l->nb_zero == 0)
-	{
-		// printf("HHHHHHHHHHHH\n");
-		display_space_with_dash(l);
-	}
-
-	else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 0 && l->check_zero == 1 && l->nb_space == 0 && l->nb_zero == 0)
-	{
-		// printf("IIIIIIIIIIIIIII\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-
-	else if (l->check_point == 0 && l->check_dash == 0 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-
-	else if (l->check_point == 1 && l->check_dash == 0 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
+	// printf("stock = %s\n", l->stock);
+	if (str[l->i] == 'd' || str[l->i] == 'i' || str[l->i] == 'x' || str[l->i] == 'X' || str[l->i] == 'u' || str[l->i] == 'p')
 	{	
-		ft_putstr_fd(l->stock, 1, l);
+		if (l->check_point == 0)
+		{
+			if (l->check_dash == 1)
+			{
+				if (l->check_space == 1)
+				{
+					if (l->check_zero == 0 && l->nb_space == 1 && l->nb_zero == 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+					else if (l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
+					{
+						// printf("DDDDDDDDDDDD\n");
+						display_space_with_dash(l);
+					}
+					else if (l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+				}
+				else if (l->check_space == 0)
+				{
+					if (l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
+					{
+						// printf("BBBBBBBBBBBB\n");
+						display_space_with_dash(l);
+					}
+					else if (l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
+					{
+						// printf("BBBBBBBBBBBB\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+				}
+			}
+			else if (l->check_dash == 0)
+			{
+				if (l->check_space == 1)
+				{
+					if (l->check_zero == 0 && l->nb_space != 0 && l->nb_zero == 0)
+					{
+						// printf("CCCCCCCCCCCCC\n");
+						display_zero(l);
+					}
+					else if (l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+				}
+				else if (l->check_space == 0)
+				{
+					ft_putstr_fd(l->stock, 1, l);
+				}
+			}
+		}
+		else if ( l->check_point == 1)
+		{
+			if (l->check_dash == 1)
+			{
+				// printf("JJJJJJJJJJJJJJ\n");
+				if (l->check_space == 0)
+				{
+					// printf("JJJJJJJJJJJJJJ\n");
+					if (l->check_zero == 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_space_with_dash(l);
+						}
+						else if (l->nb_space != 0 && l->nb_zero != 0)
+						{
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_precision_with_dash(l);
+						}
+						else if (l->nb_space == 0 && l->nb_zero == 0)
+						{
+							// printf("JJJJJJJJJJJJJJ\n");
+							ft_putstr_fd(l->stock, 1, l);
+						}
+						else if (l->nb_space == 0 && l->nb_zero != 0)
+						{
+							if (l->sign == 1)
+								ft_putstr_fd(l->stock, 1, l);
+							else
+							{
+								display_precision(l);
+							}
+							
+						}
+					}
+					else if (l->check_zero == 1)
+					{
+						if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							// printf("HHHHHHHHHHHH\n");
+							display_space_with_dash(l);
+						}
+						else if (l->nb_space == 0 && l->nb_zero == 0)
+						{
+							// printf("IIIIIIIIIIIIIII\n");
+							ft_putstr_fd(l->stock, 1, l);
+						}
+					}
+				}
+				else if (l->check_space == 1)
+				{
+					if (l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 1)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+					else if (l->check_zero == 1 && l->nb_space == 0 && l->nb_zero == 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						ft_putstr_fd(l->stock, 1, l);
+					}
+					else if (l->check_zero == 0 && l->nb_space != 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						display_precision(l);
+					}
+					else if (l->check_zero == 1 && l->nb_space != 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						display_space_with_dash(l);
+					}
+					else if (l->check_zero == 0 && l->nb_space == 0)
+					{
+						if (l->sign == 1)
+							ft_putstr_fd(l->stock, 1, l);
+						else
+						{
+							display_precision(l);
+						}
+						
+					}
+				}
+			}
+			else if (l->check_dash == 0)
+			{
+				if (l->check_space == 0)
+				{
+					if (l->check_zero == 0)
+					{
+						if (l->nb_space != 0 && l->nb_zero != 0)
+						{
+							// printf("EEEEEEEEEEEEE\n");
+							display_precision(l);
+						}
+						else if (l->nb_space == 0 && l->nb_zero != 0)
+						{
+							// printf("EEEEEEEEEEEEE\n");
+							if (l->sign == 1)
+								ft_putstr_fd(l->stock, 1, l);
+							else
+							{
+								display_precision(l);
+							}
+							
+						}
+						else if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							display_precision(l);
+						}
+
+						else if (l->nb_space == 0 && l->nb_zero == 0)
+						{
+							// printf("EEEEEEEEEEEEE\n");
+							ft_putstr_fd(l->stock, 1, l);
+						}
+					}
+					else if (l->check_zero == 1)
+					{
+						if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							// printf("GGGGGGGGGGGGG\n");
+							display_space(l);
+						}
+						else if (l->nb_space == 0 && l->nb_zero == 0)
+						{
+							// printf("JJJJJJJJJJJJJJ\n");
+							ft_putstr_fd(l->stock, 1, l);
+						}
+					}
+				}
+				else if (l->check_space == 1)
+				{
+						// printf("FFFFFFFFFsFFFFFF\n");
+
+					if (l->check_zero == 0 && l->nb_zero != 0)
+					{
+						if (l->sign == 1)
+							ft_putstr_fd(l->stock, 1, l);
+						else
+							display_zero2(l);
+					}
+					else if (l->check_zero == 0 && l->nb_zero == 0)
+					{	
+						ft_putstr_fd(l->stock, 1, l);
+					}
+					else if (l->check_zero == 1)
+					{	
+						ft_putstr_fd(l->stock, 1, l);
+					}
+				}
+			}
+		}
 	}
 
-	else if (l->check_point == 0 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
+	if (str[l->i] == 's' || str[l->i] == 'c' || str[l->i] == '%')
 	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
+		if (l->check_point == 0)
+		{
+			if (l->check_dash == 0)
+			{
+				if (ft_strlen(l->stock) >= l->nb_space)
+					ft_putstr_fd(l->stock, 1, l);
+				else
+					display_space_letter(l);
+			}
+			else if (l->check_dash == 1)
+			{
+				if (l->nb_space != 0)
+				{
+					// printf("JJJJJJJJJJJJJJ\n");
+					display_space_with_dash_letter(l);
+				}
+				else
+					ft_putstr_fd(l->stock, 1, l);
+			}
+		}
+		else if (l->check_point == 1)
+		{
+			if (l->check_dash == 1)
+			{
+				if (l->check_space == 0)
+				{
+					if (l->check_zero == 0 && l->nb_space != 0)
+					{
+						if (l->nb_zero == 0)
+						{
+							// printf("JJJJJJJsJJJJJJJ\n");
+							display_only_space_letter(l);
+						}
+						else if (l->nb_zero != 0)
+						{
+							// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_precision_with_dash_letter(l);
+						}
+					}
+					else if (l->check_zero == 1 && l->nb_space != 0 && l->nb_zero == 0)
+					{
+						// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+						// printf("JJJJJJJJJJJJJJ\n");
+						display_precision_with_dash_letter(l);
+					}
+					else if (l->nb_space == 0 && l->sign == 1 && l->nb_zero != 0)
+						ft_putstr_fd(l->stock, 1, l);
+					else if (l->nb_space == 0 && l->sign == 0 && l->nb_zero != 0)
+						display_precision_letter(l);
+				}
+				else if (l->check_space == 1 && l->nb_zero != 0)
+					{
+						// printf("JJJJJJJJJJJJJJ\n");
+						display_precision_with_dash_letter(l);
+					}
+			}
+			else if (l->check_dash == 0)
+			{
+				if (l->check_space == 0)
+				{
+					if (l->check_zero == 0)
+					{
+						if (l->nb_space != 0 && l->nb_zero != 0)
+						{
+							// printf("JJJJJJJJJJJJJJ\n");
+							if (l->sign == 1)
+								l->nb_space -= ft_strlen(l->stock);
+							else if (l->nb_zero < (int)ft_strlen(l->stock))
+								l->nb_space -= l->nb_zero;
+							else
+								l->nb_space -= ft_strlen(l->stock);
+							display_precision_letter(l); //CHECK
+						}
+						else if (l->nb_space == 0 && l->nb_zero != 0)
+						{
+							// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_precision_letter(l);
+						}
+						else if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							l->nb_zero -= ft_strlen(l->stock);
+							if (l->nb_zero >= 0)
+								l->nb_space = l->nb_space - l->nb_zero;
+							// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_precision_letter(l);
+						}
+					}
+					else if (l->check_zero == 1)
+					{
+						if (l->nb_space != 0 && l->nb_zero == 0)
+						{
+							// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+							// printf("JJJJJJJJJJJJJJ\n");
+							display_precision_with_dash_letter(l);
+						}
+					}
+				}
+				else if (l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero != 0)
+				{
+					// printf("NOMBRE ZERO = %d\n", l->nb_zero);
+					// printf("JJJJJJJJJJJJJJ\n");
+					display_precision_letter(l);
+				}
+			}
+		}
 	}
-
-	else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 0 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 0)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-	else if (l->check_point == 1 && l->check_dash == 0 && l->check_space == 0 && l->check_zero == 1 && l->nb_space == 0 && l->nb_zero == 0)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-    else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 0 && l->nb_space == 0 && l->nb_zero == 1)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-    else if (l->check_point == 1 && l->check_dash == 1 && l->check_space == 1 && l->check_zero == 1 && l->nb_space == 0 && l->nb_zero == 0)
-	{
-		// printf("JJJJJJJJJJJJJJ\n");
-		ft_putstr_fd(l->stock, 1, l);
-	}
-
-
 }
 	
 t_list *create_list(void)
@@ -583,6 +1000,8 @@ t_list *create_list(void)
 	l->stock = NULL;
 	l->sign = 0;
 	l->ret = 0;
+	l->negative = 0;
+	l->tmp = 0;
 	l->count_print = 0;
 	return (l);
 }
@@ -597,6 +1016,8 @@ void	reset_list(t_list *l)
 	l->nb_zero = 0;
 	l->sign = 0;
 	l->ret = 0;
+	l->tmp = 0;
+	l->negative = 0;
 	// free(l->stock);
 }
 

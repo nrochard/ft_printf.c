@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:22:24 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/13 02:48:00 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/17 00:30:20 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char		*ft_itoa(int n, t_list *l)
     }
 	if (n < 0)
 	{
+		l->negative = 1;
 		nb = nb * -1;
 		count++;
 	}

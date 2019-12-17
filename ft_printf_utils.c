@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:36:35 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/12 20:45:55 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/16 02:36:00 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,70 @@ char		*ft_itoa_u(unsigned int n, t_list *l)
 	}
 	str = manage_nb(count, nb2, n);
 	return (str);
+}
+
+void	ft_putstr_letter(char *s, t_list *l)
+{
+	int i;
+	int size;
+
+	size = l->nb_zero;
+	i = 0;
+	if (s == NULL)
+		return ;
+	if (l->sign == 0)
+	{
+		// printf("COUCOU\n");
+		while (s[i] != '\0' && size > 0)
+		{
+			write(1, &s[i], 1);
+			// printf("carac = %c\n", s[i]);
+			size--;
+			l->count_print++;
+			i++;
+		}
+	}
+	else if (l->sign == 1)
+	{
+		while (s[i] != '\0')
+		{
+			write(1, &s[i], 1);
+			l->count_print++;
+			i++;
+		}
+	} 
+}
+
+
+void	ft_putstr_letter2(char *s, t_list *l)
+{
+	int i;
+
+	i = 0;
+	if (s == NULL)
+		return ;
+	while (s[i] != '\0')
+	{
+		write(1, &s[i], 1);
+		l->count_print++;
+		i++;
+	}
+}
+
+void	ft_putstr_null(char *s, int fd, t_list *l)
+{
+	int i;
+    (void)fd;
+	i = 0;
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
+	while (s[i] != '\0')
+	{
+        write(1, &s[i], 1);
+
+        l->count_print++;
+		i++;
+	}
 }

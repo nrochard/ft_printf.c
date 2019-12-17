@@ -4,7 +4,7 @@
 int main()
 {
 
-	 int		a = -4;
+	int		a = -4;
 	int		b = 0;
 	char	c = 'a';
 	int		d = 2147483647;
@@ -102,16 +102,20 @@ int main()
 	// printf("%d\n", printf("%-.0i, %-.0d, %-.0d, %-.0d, %-.0d, %-.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%-.0i, %-.0d, %-.0d, %-.0d, %-.0d, %-.0d", i, j, k, l, m, c));
     
-	// printf("%d\n", printf("%-i, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c));
+	// printf("%d\n", printf("%-i, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c)); PROBLEEEEEMM
 	// printf("%d\n", ft_printf("%-i, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c));
 
-    // 	printf("%d\n", printf("%.i, %.d, %.d, %.d, %.d, %.d", i, j, k, 0, m, c));
+    // 	printf("%d\n", printf("%.i, %.d, %.d, %.d, %.d, %.d", i, j, k, 0, m, c)); PROBBLEEEM
 	// printf("%d\n", ft_printf("%.i, %.d, %.d, %.d, %.d, %.d", i, j, k, 0, m, c));
 
-    //  printf("%d\n", printf("|%.d|", 0));
-	// printf("%d\n", ft_printf("|%.d|", 0));
+    // printf("%d\n", printf("-->|%*s|<--\n", 4, "abc"));
+	// printf("%d\n", ft_printf("-->|%*s|<--\n", 4, "abc"));
 
-    // 	printf("%d\n", printf("%-0.0i, %-0.0d, %-0.0d, %-0.0d, %-0.0d, %-0.0d", i, j, k, l, m, c));
+	printf("%d\n", printf("-->|%-4.*d|<--\n", 1, -12));
+	printf("%d\n", ft_printf("-->|%-4.*d|<--\n", 2, -12));
+
+
+    	// printf("%d\n", printf("%-0.0i, %-0.0d, %-0.0d, %-0.0d, %-0.0d, %-0.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%-0.0i, %-0.0d, %-0.0d, %-0.0d, %-0.0d, %-0.0d", i, j, k, l, m, c));
 
     // 	printf("%d\n", printf("%00i, %00d, %00d, %00d, %00d, %00d", i, j, k, l, m, c));
@@ -141,7 +145,7 @@ int main()
   // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
 
-  // 	printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
+  	// printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
 
 

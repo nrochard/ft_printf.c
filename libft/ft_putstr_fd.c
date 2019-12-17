@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:39:32 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/01 18:47:42 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/17 00:51:18 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	ft_putstr_fd(char *s, int fd, t_list *l)
 	i = 0;
 	if (s == NULL)
 		return ;
+	if (l->tmp == 1)
+		i++;
 	while (s[i] != '\0')
 	{
         write(1, &s[i], 1);
-
         l->count_print++;
 		i++;
 	}
