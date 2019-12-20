@@ -6,14 +6,11 @@ SRCS	=	libft/ft_atoi.c			\
 			libft/ft_putnbr_fd.c	\
 			libft/ft_putstr_fd.c	\
 			libft/ft_strdup.c		\
-			libft/ft_strjoin.c		\
 			libft/ft_strlen.c		\
-			libft/ft_strrchr.c		\
-			libft/ft_strtrim.c		\
-			libft/ft_substr.c		\
 			libft/ft_putnbr_base.c	\
-			./ft_printf.c 			\
+			ft_printf.c 			\
 			ft_printf_utils.c		\
+			ft_manage.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

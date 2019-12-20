@@ -111,9 +111,17 @@ int main()
     // printf("%d\n", printf("-->|%*s|<--\n", 4, "abc"));
 	// printf("%d\n", ft_printf("-->|%*s|<--\n", 4, "abc"));
 
-	printf("%d\n", printf("-->|%-4.*d|<--\n", 1, -12));
-	printf("%d\n", ft_printf("-->|%-4.*d|<--\n", 2, -12));
+	// printf("%d\n", printf("-->|%*.*d|<--\n", 2, 1, 0));
+	// printf("%d\n", ft_printf("-->|%*.*d|<--\n", 2, 1, 0));
 
+
+	// printf("%d\n", printf("-->|%0.i, %0.d, %0.d, %0.d, %0.d, %0.d|<--\n", i, j, k, 0, m, c));
+	// printf("%d\n", ft_printf("-->|%0.i, %0.d, %0.d, %0.d, %0.d, %0.d|<--\n", i, j, k, 0, m, c));
+
+	printf("%d\n", printf("|%0.d|<--\n", 0));
+	printf("%d\n", ft_printf("|%0.d|<--\n", 0));
+
+	// while (1);
 
     	// printf("%d\n", printf("%-0.0i, %-0.0d, %-0.0d, %-0.0d, %-0.0d, %-0.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%-0.0i, %-0.0d, %-0.0d, %-0.0d, %-0.0d, %-0.0d", i, j, k, l, m, c));
@@ -147,8 +155,5 @@ int main()
 
   	// printf("%d\n", printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
 	// printf("%d\n", ft_printf("%1.0i, %1.0d, %1.0d, %1.0d, %1.0d, %1.0d", i, j, k, l, m, c));
-
-
-
 	return (0);
 }

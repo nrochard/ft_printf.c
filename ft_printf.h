@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/17 00:50:08 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/20 20:39:46 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,24 @@ int     ft_isdigit(int c);
 int     ft_strlen(const char *str);
 void	ft_putstr_letter2(char *s, t_list *l);
 void	ft_putstr_null(char *s, int fd, t_list *l);
-char		*ft_itoa(int n, t_list *l);
-char		*ft_itoa_u(unsigned int n, t_list *l);
-int     main();
+char	*ft_itoa(int n, t_list *l);
+char	*ft_itoa_u(unsigned int n, t_list *l);
+void	ft_putnbr_p(uintmax_t nbr, char *base, t_list *l);
+void display_precision_char(t_list *l);
+
+void display_precision_char(t_list *l);
+int					ft_strncmp(const char *s1, const char *s2, int n);
+int    	main();
 void	ft_putstr_letter(char *s, t_list *l);
-int					ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 void				ft_putchar_fd(char c, int fd, t_list *l);
 void				ft_putnbr_fd(int n, int fd, t_list *l);
 void	            ft_putnbr_base(unsigned int nbr, char *base, t_list *l);
 void	            ft_putstr_fd(char *s, int fd, t_list *l);
-char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *src);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strnstr(const char *s1, const char *s2, size_t len);
-char				*ft_strrchr(const char *s, int c);
-char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_manage_zero(t_list *l);
 
 
 

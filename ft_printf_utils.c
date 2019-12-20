@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:36:35 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/16 02:36:00 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/19 21:25:11 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putnbr_u(unsigned n, t_list *l)
 	}
 }
 
-static char	*manage_nb(int count, long nb2, int n)
+static char	*manage_nb(int count, long nb2)
 {
 	int		i;
 	char	*str;
@@ -44,8 +44,6 @@ static char	*manage_nb(int count, long nb2, int n)
 	if (!(str = malloc(sizeof(char) * (count + 1))))
 		return (NULL);
 	str[count] = '\0';
-	if (n < 0)
-		str[0] = '-';
 	while (nb2 > 0)
 	{
 		str[--count] = (nb2 % 10) + '0';
@@ -65,24 +63,21 @@ char		*ft_itoa_u(unsigned int n, t_list *l)
 	nb = n;
 	count = 0;
 	str = NULL;
-    // if (n == 0)
-    //     printf("l->c = %d\n", l->check);
+
+	if (n == 0)
+		return (ft_manage_zero(l));
+
     if (n == 0)
     {
         return(ft_strdup("0"));
     }
-	if (n < 0)
-	{
-		nb = nb * -1;
-		count++;
-	}
 	nb2 = nb;
 	while (nb > 0)
 	{
 		nb = nb / 10;
 		count++;
 	}
-	str = manage_nb(count, nb2, n);
+	str = manage_nb(count, nb2);
 	return (str);
 }
 
@@ -150,4 +145,18 @@ void	ft_putstr_null(char *s, int fd, t_list *l)
         l->count_print++;
 		i++;
 	}
+}
+int	ft_strncmp(const char *s1, const char *s2, int n)
+{
+	int	i;
+
+	i = 0;
+	while (n--)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		++i;
+	}
+	// printf("IIICIIII");
+	return (0);
 }
