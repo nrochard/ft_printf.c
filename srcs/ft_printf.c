@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 14:59:11 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 11:49:15 by nrochard         ###   ########.fr       */
+/*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
+/*   Updated: 2019/12/21 11:29:08 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd, t_list *l)
+int		ft_printf(const char *str, ...)
 {
-	int nb;
+	va_list		v;
+	t_list		*l;
 
-	if (n == -2147483648)
+	va_start(v, str);
+	if ((l = create_list()) == 0)
+		return (0);
+	while (str[l->i] != '\0')
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		if (str[l->i] == '%')
+		{
+			search_flag(str, v, l);
+		}
+		else
+		{
+			write(1, &str[l->i], 1);
+			l->count_print++;
+		}
+		l->i++;
 	}
-	nb = n;
-	if (n < 0)
-	{
-		nb = -n;
-		ft_putchar_fd('-', fd, l);
-	}
-	if (nb < 10)
-		ft_putchar_fd((nb + '0'), fd, l);
-	else
-	{
-		ft_putnbr_fd((nb / 10), fd, l);
-		ft_putchar_fd((nb % 10 + '0'), fd, l);
-	}
+	free(l);
+	return (l->count_print);
 }

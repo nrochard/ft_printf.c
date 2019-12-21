@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 18:36:35 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 02:18:07 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 11:32:12 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putchar(char c, t_list *l)
 {
 	write(1, &c, 1);
-    l->count_print++;
+	l->count_print++;
 }
 
 char	*manage_nb(int count, long nb2)
@@ -35,7 +35,7 @@ char	*manage_nb(int count, long nb2)
 	return (str);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+int		ft_strncmp(const char *s1, const char *s2, int n)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	return (0);
 }
 
-int how_long(int nb_space)
+int		how_long(int nb_space)
 {
 	int count;
 
@@ -60,4 +60,11 @@ int how_long(int nb_space)
 		count++;
 	}
 	return (count);
+}
+
+void	put_negative(t_list *l)
+{
+	if (l->negative == 1)
+		ft_putchar('-', l);
+	ft_putstr_fd(l->stock, 1, l);
 }

@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 01:55:58 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 02:04:26 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 09:29:16 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,26 @@ void	ft_putstr_letter(char *s, t_list *l)
 	int size;
 
 	size = l->nb_zero;
-	i = 0;
+	i = -1;
 	if (s == NULL)
 		return ;
 	if (l->sign == 0)
 	{
-		while (s[i] != '\0' && size > 0)
+		while (s[++i] != '\0' && size > 0)
 		{
 			write(1, &s[i], 1);
 			size--;
 			l->count_print++;
-			i++;
 		}
 	}
 	else if (l->sign == 1)
 	{
-		while (s[i] != '\0')
+		while (s[++i] != '\0')
 		{
 			write(1, &s[i], 1);
 			l->count_print++;
-			i++;
 		}
-	} 
+	}
 }
 
 void	ft_putstr_letter2(char *s, t_list *l)
@@ -60,17 +58,15 @@ void	ft_putstr_letter2(char *s, t_list *l)
 void	ft_putstr_null(char *s, int fd, t_list *l)
 {
 	int i;
-    (void)fd;
+
+	(void)fd;
 	i = 0;
 	if (s == NULL)
-	{
 		s = "(null)";
-	}
 	while (s[i] != '\0')
 	{
-        write(1, &s[i], 1);
-
-        l->count_print++;
+		write(1, &s[i], 1);
+		l->count_print++;
 		i++;
 	}
 }

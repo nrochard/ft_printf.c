@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 02:23:03 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 02:23:13 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 09:32:07 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	display_precision_letter(t_list *l)
 			ft_putchar(' ', l);
 			l->nb_space--;
 		}
-	}	
+	}
 	ft_putstr_letter(l->stock, l);
 }
-
 
 void	display_only_space_letter(t_list *l)
 {

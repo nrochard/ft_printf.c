@@ -6,26 +6,26 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 01:47:18 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 02:04:34 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 08:38:56 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    put_p(void *s, t_list *l)
+void	put_p(void *s, t_list *l)
 {
-	int i;
-	uintmax_t nb;
+	int			i;
+	uintmax_t	nb;
 
 	i = 0;
 	if (s == NULL)
 	{
 		if (l->check_point == 0)
 			l->stock = ft_strdup("0x0");
-		else 
+		else
 			l->stock = ft_strdup("0x");
 		return ;
-	}	
+	}
 	nb = (uintmax_t)s;
 	if (nb == 0)
 		l->stock = ft_strdup("0");
