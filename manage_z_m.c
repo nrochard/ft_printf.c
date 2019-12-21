@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 20:54:38 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/20 21:43:20 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 01:39:21 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,3 +95,22 @@ char	*ft_manage_zero(t_list *l)
 	}
 	return (ft_strdup(""));
 }
+
+char  *manage_modulo(char d)
+{
+	char	*dest;
+	char	src[2];
+	int		i;
+
+	i = 0;
+	src[0] = d;
+	src[1] = '\0';
+	if (!(dest = malloc(sizeof(char) * 2)))
+		return (0);
+	while (i < 2)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
+} 

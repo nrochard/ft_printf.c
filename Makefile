@@ -10,7 +10,16 @@ SRCS	=	libft/ft_atoi.c			\
 			libft/ft_putnbr_base.c	\
 			ft_printf.c 			\
 			ft_printf_utils.c		\
-			ft_manage.c
+			manage_z_m.c			\
+			put.c 					\
+			manage_u.c				\
+			putstr.c 				\
+			manage_flag.c			\
+			display_letter.c		\
+			manage_type.c			\
+			display_flag1.c			\
+			display_flag2.c			\
+			display_flag3.c			\
 
 OBJS	=	$(SRCS:%.c=%.o)
 

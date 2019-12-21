@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:22:24 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 02:00:06 by nrochard         ###   ########.fr       */
+/*   Created: 2019/12/21 01:47:18 by nrochard          #+#    #+#             */
+/*   Updated: 2019/12/21 02:04:34 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa(int n, t_list *l)
+void    put_p(void *s, t_list *l)
 {
-	long	nb;
-	long	nb2;
-	char	*str;
-	int		count;
+	int i;
+	uintmax_t nb;
 
-	nb = n;
-	count = 0;
-	str = NULL;
-	if (n == 0)
-		return (ft_manage_zero(l));
-	if (n < 0)
+	i = 0;
+	if (s == NULL)
 	{
-		l->negative = 1;
-		nb = nb * -1;
-	}
-	nb2 = nb;
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		count++;
-	}
-	str = manage_nb(count, nb2);
-	return (str);
+		if (l->check_point == 0)
+			l->stock = ft_strdup("0x0");
+		else 
+			l->stock = ft_strdup("0x");
+		return ;
+	}	
+	nb = (uintmax_t)s;
+	if (nb == 0)
+		l->stock = ft_strdup("0");
+	else
+		ft_putnbr_p(nb, "0123456789abcdef", l);
 }
