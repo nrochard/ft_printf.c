@@ -6,13 +6,13 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:30:04 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 12:26:57 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 14:19:58 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd, t_list *l)
+void		ft_putchar_fd(char c, int fd, t_list *l)
 {
 	write(fd, &c, 1);
 	l->count_print++;

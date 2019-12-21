@@ -6,13 +6,13 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 12:28:19 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 14:27:17 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		reverse_stock_p(t_list *l)
+void	reverse_stock_p(t_list *l)
 {
 	char	*tmp;
 	int		size;

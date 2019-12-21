@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:42:45 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 12:28:39 by nrochard         ###   ########.fr       */
+/*   Updated: 2019/12/21 14:26:18 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void			search_flag14(t_list *l);
 
 void			search_string(t_list *l);
 void			search_number(t_list *l);
+void			search_number2(t_list *l);
 void			search_char(t_list *l);
 void			search_modulo(t_list *l);
 
@@ -122,6 +123,6 @@ void			ft_putnbr_fd(int n, int fd, t_list *l);
 void			ft_putnbr_base(unsigned int nbr, char *base, t_list *l);
 void			ft_putstr_fd(char *s, int fd, t_list *l);
 char			*ft_strdup(const char *src);
-void	        reverse_stock(t_list *l);
+void			reverse_stock(t_list *l);
 
 #endif
