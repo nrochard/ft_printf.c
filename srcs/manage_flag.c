@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 02:13:48 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 08:49:44 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/04 21:14:10 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,22 @@ void	manage_zero(t_list *l, const char *str)
 {
 	if (str[l->i] == '0')
 	{
-		l->check_zero = 1;
 		l->i++;
-		return ;
+		if (str[l->i] > '0' && str[l->i] <= '9')
+		{
+			l->nb_zero = ft_atoi(&str[l->i]);
+			l->ret = how_long(l->nb_zero);
+			l->i = l->i + l->ret;
+		}
+		else
+			l->check_zero = 1;
 	}
 	else if (str[l->i] > '0' && str[l->i] <= '9')
+	{
 		l->nb_zero = ft_atoi(&str[l->i]);
-	l->ret = how_long(l->nb_zero);
-	l->i = l->i + l->ret;
+		l->ret = how_long(l->nb_zero);
+		l->i = l->i + l->ret;
+	}
 }
 
 void	manage_star_zero(t_list *l, va_list v)

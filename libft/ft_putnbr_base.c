@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 14:27:17 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/04 21:08:25 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,7 @@ void	reverse_stock_p(t_list *l)
 	l->stock[0] = '0';
 	l->stock[1] = 'x';
 	l->stock[i] = '\0';
-}
-
-void	end_ft_putnbr(uintmax_t nbr, int size, char *base, t_list *l)
-{
-	if (nbr < 16)
-		l->stock[size] = base[nbr];
-	else
-		l->stock[size] = base[nbr % 16];
-	size++;
-	l->stock[size] = '\0';
-	reverse_stock_p(l);
+	free(tmp);
 }
 
 void	ft_putnbr_p(uintmax_t nbr, char *base, t_list *l)
@@ -58,11 +48,11 @@ void	ft_putnbr_p(uintmax_t nbr, char *base, t_list *l)
 	else
 	{
 		a = nbr;
-		while (a > 16 && ++size)
+		while (a > 0 && ++size)
 			a = a / 16;
 		l->stock = malloc(sizeof(char) * (size + 2));
 		size = 0;
-		while (nbr > 16)
+		while (nbr > 0)
 		{
 			if (nbr < 16)
 				l->stock[size] = base[nbr];
@@ -71,7 +61,8 @@ void	ft_putnbr_p(uintmax_t nbr, char *base, t_list *l)
 			size++;
 			nbr = nbr / 16;
 		}
-		end_ft_putnbr(nbr, size, base, l);
+		l->stock[size] = '\0';
+		reverse_stock_p(l);
 	}
 }
 
