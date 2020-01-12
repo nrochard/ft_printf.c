@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 02:13:48 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/04 21:14:10 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/12 18:02:49 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	manage_space(t_list *l, const char *str)
 			l->nb_space = ft_atoi(&str[l->i]);
 			l->ret = how_long(l->nb_space);
 			l->i = l->i + l->ret;
-			l->i = l->i - 1;
 		}
 		return ;
 	}

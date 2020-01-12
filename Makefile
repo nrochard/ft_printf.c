@@ -1,15 +1,10 @@
 NAME	=	libftprintf.a
 
-SRCS	=	libft/ft_atoi.c			\
-			libft/ft_itoa.c			\
-			libft/ft_putchar_fd.c	\
-			libft/ft_putnbr_fd.c	\
-			libft/ft_putstr_fd.c	\
-			libft/ft_strdup.c		\
-			libft/ft_strlen.c		\
-			libft/ft_putnbr_base.c	\
-			srcs/ft_printf.c 		\
-			srcs/ft_printf_utils.c	\
+SRCS	=	srcs/ft_printf.c 		\
+			srcs/printf_utils.c		\
+			srcs/printf_utils1.c	\
+			srcs/printf_utils2.c	\
+			srcs/printf_utils3.c	\
 			srcs/manage_z_m.c		\
 			srcs/put.c 				\
 			srcs/manage_u.c			\

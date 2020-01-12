@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   printf_utils3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 13:39:32 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 11:49:47 by nrochard         ###   ########.fr       */
+/*   Created: 2020/01/12 16:34:46 by nrochard          #+#    #+#             */
+/*   Updated: 2020/01/12 18:01:11 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,39 @@ void	ft_putstr_fd(char *s, int fd, t_list *l)
 		l->count_print++;
 		i++;
 	}
+}
+
+char	*ft_strdup(const char *src)
+{
+	char	*dest;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = 0;
+	if (src == NULL)
+		return (ft_strdup("(null)"));
+	while (src[i] != '\0')
+		i++;
+	len = i;
+	i = 0;
+	if (!(dest = malloc(sizeof(char) * len + 1)))
+		return (0);
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+int		ft_strlen(const char *str)
+{
+	int a;
+
+	a = 0;
+	while (str[a] != '\0')
+		a++;
+	return (a);
 }

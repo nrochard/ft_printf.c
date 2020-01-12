@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 02:32:40 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/04 20:54:48 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/12 18:02:26 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ char	*manage_type(const char *str, t_list *l, va_list v)
 int		which_letter(const char *str, int i)
 {
 	if (str[i] && (str[i] == 'c' || str[i] == 's' || str[i] == 'p' ||
-		str[i] == 'd' || str[i] == 'i' || str[i] == 'u' || str[i] == 'x' ||
-		str[i] == 'X' || str[i] == '%'))
+	str[i] == 'd' || str[i] == 'i' || str[i] == 'u' || str[i] == 'x' ||
+	str[i] == 'X' || str[i] == '%'))
+	{
 		return (1);
+	}
 	return (0);
 }
 

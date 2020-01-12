@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   printf_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/16 15:26:22 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/04 21:08:25 by nrochard         ###   ########.fr       */
+/*   Created: 2020/01/12 16:30:18 by nrochard          #+#    #+#             */
+/*   Updated: 2020/01/12 17:59:27 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ void	ft_putnbr_base(unsigned int nbr, char *base, t_list *l)
 	else
 	{
 		a = nbr;
-		while (a > 16 && ++size)
+		while (a > 0 && ++size)
 			a = a / 16;
-		l->stock = malloc(sizeof(char) * (size + 1));
+		l->stock = malloc(sizeof(char) * (size + 2));
 		size = 0;
-		while (nbr > 16)
+		while (nbr >= 16)
 		{
 			if (nbr < 16)
 				l->stock[size] = base[nbr];
