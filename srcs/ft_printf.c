@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/13 20:13:07 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/13 21:52:59 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		ft_printf(const char *str, ...)
 		l->i++;
 	}
 	final_ret = l->count_print;
-	free(l->stock);
 	free(l);
 	return (final_ret);
 }

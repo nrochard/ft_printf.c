@@ -38,10 +38,6 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
-bonus:		$(OBJS) $(B_OBJS)
-			ar rc $(NAME) $(OBJS)
-			ranlib $(NAME)
-
 clean:
 			$(RM) $(OBJS)
 

@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 02:32:40 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/13 15:16:44 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/13 22:03:02 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,19 @@ void	what_type2(const char *str, int i, va_list v, t_list *l)
 	{
 		put_p(va_arg(v, void*), l);
 		ft_putstr_fd(l->stock, 1, l);
+		free(l->stock);
 	}
 	else if (str[i] == 'x')
 	{
 		ft_putnbr_base(va_arg(v, unsigned int), "0123456789abcdef", l);
 		ft_putstr_fd(l->stock, 1, l);
+		free(l->stock);
 	}
 	else if (str[i] == 'X')
 	{
 		ft_putnbr_base(va_arg(v, unsigned int), "0123456789ABCDEF", l);
 		ft_putstr_fd(l->stock, 1, l);
+		free(l->stock);
 	}
 	else if (str[i] == '%')
 	{
