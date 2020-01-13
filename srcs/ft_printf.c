@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 14:38:14 by nrochard          #+#    #+#             */
-/*   Updated: 2019/12/21 11:29:08 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/13 20:13:07 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		ft_printf(const char *str, ...)
 {
 	va_list		v;
 	t_list		*l;
+	int			final_ret;
 
 	va_start(v, str);
 	if ((l = create_list()) == 0)
@@ -33,6 +34,8 @@ int		ft_printf(const char *str, ...)
 		}
 		l->i++;
 	}
+	final_ret = l->count_print;
+	free(l->stock);
 	free(l);
-	return (l->count_print);
+	return (final_ret);
 }

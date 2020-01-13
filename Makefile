@@ -23,7 +23,7 @@ SRCS	=	srcs/ft_printf.c 		\
 
 OBJS	=	$(SRCS:%.c=%.o)
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g
 
 CC		=	gcc
 

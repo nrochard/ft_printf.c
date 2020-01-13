@@ -6,7 +6,7 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 16:30:15 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/12 18:00:21 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/13 20:07:57 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,16 @@ void	reverse_stock(t_list *l)
 	i = 0;
 	size = ft_strlen(l->stock);
 	tmp = malloc(sizeof(char) * (size + 1));
-	tmp = l->stock;
-	l->stock = NULL;
-	l->stock = malloc(sizeof(char) * (size + 1));
-	tmp[size] = '\0';
 	while (size > 0)
 	{
-		l->stock[i] = tmp[size - 1];
+		tmp[i] = l->stock[size - 1];
 		i++;
 		size--;
 	}
-	l->stock[i] = '\0';
+	tmp[i] = '\0';
+	free(l->stock);
+	l->stock = ft_strdup(tmp);
+	free(tmp);
 }
 
 void	ft_putnbr_fd(int n, int fd, t_list *l)
@@ -100,6 +99,7 @@ void	ft_putnbr_fd(int n, int fd, t_list *l)
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
+		l->count_print += 11;
 		return ;
 	}
 	nb = n;
