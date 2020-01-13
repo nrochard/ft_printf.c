@@ -6,11 +6,38 @@
 /*   By: nrochard <nrochard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 16:30:18 by nrochard          #+#    #+#             */
-/*   Updated: 2020/01/13 20:15:13 by nrochard         ###   ########.fr       */
+/*   Updated: 2020/01/13 20:21:57 by nrochard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	reverse_stock_p(t_list *l)
+{
+	char	*tmp;
+	int		size;
+	int		i;
+
+	i = 0;
+	size = ft_strlen(l->stock) + 2;
+	tmp = malloc(sizeof(char) * (size + 1));
+	tmp = l->stock;
+	l->stock = NULL;
+	l->stock = malloc(sizeof(char) * (size + 1));
+	tmp[size] = '\0';
+	while (size > 0)
+	{
+		l->stock[i] = tmp[size - 1];
+		i++;
+		size--;
+	}
+	l->stock[0] = '0';
+	l->stock[1] = 'x';
+	l->stock[i] = '\0';
+	free(tmp);
+}
+
+/*
 
 void	reverse_stock_p(t_list *l)
 {
@@ -31,9 +58,10 @@ void	reverse_stock_p(t_list *l)
 	}
 	tmp[i] = '\0';
 	free(l->stock);
-	l->stock = ft_strdup(tmp);
-	free(tmp);
+	l->stock = tmp;
 }
+
+*/
 
 void	ft_putnbr_p(uintmax_t nbr, char *base, t_list *l)
 {
